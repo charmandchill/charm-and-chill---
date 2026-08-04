@@ -228,3 +228,12 @@ function closeImage(){
 
 updateCartCount();
 displayCart();
+
+function openImage(src){
+    document.getElementById("popupImage").src = src;
+    document.getElementById("imagePopup").style.display = "flex";
+}
+
+function closeImage(){
+    document.getElementById("imagePopup").style.display = "none";
+}
