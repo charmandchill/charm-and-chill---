@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Charm & Chill</title>
+
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        <a href="index.html">
+            <img src="logo.png" alt="Charm & Chill">
+        </a>
+    </div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#shop">Collection</a></li>
+        <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Charm & Chill</h1>
+
+        <p>
+            Handmade jewellery crafted with love,
+            personalized just for you.
+        </p>
+
+        <a href="#shop" class="btn">
+            Shop Collection
+        </a>
+
+    </div>
+
+</section>
+
+<section class="products" id="shop">
+
+<h2>Our Collection</h2>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search products...">
+</div>
+
+<div class="category-menu">
+    <button onclick="filterProducts('all')">All</button>
+    <button onclick="filterProducts('bracelet')">Bracelets</button>
+    <button onclick="filterProducts('necklace')">Necklaces</button>
+    <button onclick="filterProducts('earring')">Earrings</button>
+    <button onclick="filterProducts('ring')">Rings</button>
+</div>
+
+<div class="product-grid" id="product-grid">
+
+    <div class="product-card bracelet">
+        <img src="Beaded-bracelets.png" alt="Beaded Bracelet">
+        <div class="product-card-content">
+            <h3>Beaded Bracelet</h3>
+            <p>Rs. 120</p>
+            <button onclick="addToCart('Beaded Bracelet',120,'Beaded-bracelets.png')">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-card bracelet">
+        <img src="Charm_bracelet.png" alt="Charm Bracelet">
+        <div class="product-card-content">
+            <h3>Charm Bracelet</h3>
+            <p>Rs. 260</p>
+            <button onclick="addToCart('Charm Bracelet',260,'Charm_bracelet.png')">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-card bracelet">
+        <img src="Custom_bracelet.png" alt="Custom Bracelet">
+        <div class="product-card-content">
+            <h3>Custom Bracelet</h3>
+            <p>Rs. 220</p>
+            <button onclick="addToCart('Custom Bracelet',220,'Custom_bracelet.png')">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-card necklace">
+        <img src="Elegant necklace.png" alt="Elegant Necklace">
+        <div class="product-card-content">
+            <h3>Elegant Necklace</h3>
+            <p>Rs. 295</p>
+            <button onclick="addToCart('Elegant Necklace',295,'Elegant necklace.png')">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-card earring">
+        <img src="Jhumki earrings .png" alt="Jhumki Earrings">
+        <div class="product-card-content">
+            <h3>Jhumki Earrings</h3>
+            <p>Rs. 295</p>
+            <button onclick="addToCart('Jhumki Earrings',295,'Jhumki earrings .png')">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-card ring">
+        <img src="Rings .png" alt="Rings">
+        <div class="product-card-content">
+            <h3>Rings</h3>
+            <p>Rs. 185</p>
+            <button onclick="addToCart('Rings',185,'Rings .png')">Add to Cart</button>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+    <p>Instagram: @charm.and_chill</p>
+    <p>© 2026 Charm & Chill</p>
+    <p>Handmade with Love ✨</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

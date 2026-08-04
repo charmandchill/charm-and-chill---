@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | Charm & Chill</title>
+
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="page-bg">
+
+<nav>
+
+    <div class="logo">
+        <a href="index.html">
+            <img src="logo.png" alt="Charm & Chill">
+        </a>
+    </div>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cart.html">Cart</a></li>
+    </ul>
+
+</nav>
+
+<section class="products">
+
+    <h2>Checkout</h2>
+
+    <div class="checkout-form">
+
+        <h3>Order Summary</h3>
+
+        <div id="order-summary"></div>
+
+        <input
+        type="text"
+        id="fullName"
+        placeholder="Full Name">
+
+        <input
+        type="text"
+        id="phone"
+        placeholder="Phone Number">
+
+        <textarea
+        id="address"
+        placeholder="Delivery Address"></textarea>
+
+        <button onclick="showPayment()">
+            Proceed to Payment
+        </button>
+
+        <div id="payment-box" style="display:none;">
+
+            <h3>💳 Easypaisa Payment</h3>
+
+            <p>Send payment to:</p>
+
+            <p><strong>03200218843</strong></p>
+
+            <p><strong>Account Title:</strong> Amina Arif</p>
+
+            <p>
+                After completing the payment, click the button below
+                and send your payment screenshot on WhatsApp.
+            </p>
+
+            <button class="btn" onclick="sendOrder()">
+                Send Screenshot on WhatsApp
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>Instagram: @charm.and_chill</p>
+
+    <p>© 2026 Charm & Chill • Handmade with Love ✨</p>
+
+</footer>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let summary = document.getElementById("order-summary");
+
+let total = 0;
+
+
+/* ORDER SUMMARY */
+
+if(cart.length === 0){
+
+    summary.innerHTML = "<p>Your cart is empty.</p>";
+
+}else{
+
+    cart.forEach(item => {
+
+        let qty = item.quantity || 1;
+
+        total += item.price * qty;
+
+       summary.innerHTML += `
+
+<div class="checkout-item">
+
+    <img src="${item.image}" alt="${item.name}">
+
+    <div class="checkout-details">
+
+        <h4>${item.name}</h4>
+
+   <p>Quantity: ${qty}</p>
+
+        <p>Rs. ${item.price * qty}</p>
+
+    </div>
+
+</div>
+
+`;
+
+    });
+
+    summary.innerHTML += `
+        <h3>Total: Rs. ${total}</h3>
+    `;
+
+}
+
+
+/* SHOW PAYMENT */
+
+function showPayment(){
+
+    let name =
+    document.getElementById("fullName").value.trim();
+
+    let phone =
+    document.getElementById("phone").value.trim();
+
+    let address =
+    document.getElementById("address").value.trim();
+
+    if(name === "" || phone === "" || address === ""){
+
+        alert("Please fill in your Name, Phone Number and Delivery Address.");
+
+        return;
+    }
+
+    document.getElementById("payment-box").style.display = "block";
+}
+
+
+/* SEND TO WHATSAPP */
+
+function sendOrder(){
+
+    let name =
+    document.getElementById("fullName").value;
+
+    let phone =
+    document.getElementById("phone").value;
+
+    let address =
+    document.getElementById("address").value;
+
+    let message =
+`Hi! I have completed my payment.
+
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+
+Order:
+
+`;
+
+    cart.forEach(item => {
+
+        let qty = item.quantity || 1;
+
+        message +=
+`• ${item.name} × ${qty}
+Rs. ${item.price * qty}
+
+`;
+
+    });
+
+    message +=
+`Total: Rs. ${total}
+
+I have attached my payment screenshot.`;
+
+    window.open(
+        "https://wa.me/923200218843?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+
+    localStorage.removeItem("cart");
+
+    alert(
+        "Thank you for your order! Please attach your payment screenshot in WhatsApp."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
