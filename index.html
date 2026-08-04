@@ -69,7 +69,8 @@
 <div class="product-grid" id="product-grid">
 
     <div class="product-card bracelet">
-        <img src="Beaded-bracelets.png" alt="Beaded Bracelet">
+        <img src="Beaded-bracelets.png" alt="Beaded Bracelet"
+     onclick="openImage(this.src)">
         <div class="product-card-content">
             <h3>Beaded Bracelet</h3>
             <p>Rs. 120</p>
@@ -78,7 +79,8 @@
     </div>
 
     <div class="product-card bracelet">
-        <img src="Charm_bracelet.png" alt="Charm Bracelet">
+        <img src="Charm_bracelet.png" alt="Charm Bracelet"
+     onclick="openImage(this.src)">
         <div class="product-card-content">
             <h3>Charm Bracelet</h3>
             <p>Rs. 260</p>
@@ -87,7 +89,8 @@
     </div>
 
     <div class="product-card bracelet">
-        <img src="Custom_bracelet.png" alt="Custom Bracelet">
+        <img src="Custom_bracelet.png" alt="Custom Bracelet"
+     onclick="openImage(this.src)">
         <div class="product-card-content">
             <h3>Custom Bracelet</h3>
             <p>Rs. 220</p>
@@ -96,7 +99,8 @@
     </div>
 
     <div class="product-card necklace">
-        <img src="Elegant necklace.png" alt="Elegant Necklace">
+        <img src="Elegant necklace.png" alt="Elegant Necklace"
+     onclick="openImage(this.src)">
         <div class="product-card-content">
             <h3>Elegant Necklace</h3>
             <p>Rs. 295</p>
@@ -105,7 +109,8 @@
     </div>
 
     <div class="product-card earring">
-        <img src="Jhumki earrings .png" alt="Jhumki Earrings">
+        <img src="Jhumki earrings .png" alt="Jhumki Earrings"
+     onclick="openImage(this.src)">
         <div class="product-card-content">
             <h3>Jhumki Earrings</h3>
             <p>Rs. 295</p>
@@ -114,7 +119,8 @@
     </div>
 
     <div class="product-card ring">
-        <img src="Rings .png" alt="Rings">
+        <img src="Rings .png" alt="Rings"
+     onclick="openImage(this.src)">
         <div class="product-card-content">
             <h3>Rings</h3>
             <p>Rs. 185</p>
@@ -133,6 +139,11 @@
 </footer>
 
 <script src="script.js"></script>
+
+<div id="imagePopup" class="image-popup" onclick="closeImage()">
+    <span class="close-popup">&times;</span>
+    <img id="popupImage" src="" alt="Product">
+</div>
 
 </body>
 </html>
