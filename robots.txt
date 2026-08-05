@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://charmandchill.github.io/charm-and-chill---/sitemap.xml
