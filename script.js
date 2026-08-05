@@ -165,35 +165,59 @@ function filterProducts(category){
     });
 }
 
-/* SEARCH PRODUCTS */
+function searchProducts() {
 
-function searchProducts(){
+    let input = document.getElementById("searchInput");
 
-    let input =
-    document.getElementById("searchInput");
+    if (!input) return;
 
-    if(!input) return;
+    let value = input.value.toLowerCase().trim();
 
-    let value = input.value.toLowerCase();
+    let products = document.querySelectorAll(".product-card");
 
-    let products =
-    document.querySelectorAll(".product-card");
+    let found = false;
 
     products.forEach(product => {
 
-        let title =
-        product.querySelector("h3")
-        .textContent
-        .toLowerCase();
+        let title = product.querySelector("h3").textContent.toLowerCase();
 
-        if(title.includes(value)){
-            product.style.display = "block";
+        let show = false;
+
+        // Exact category search
+        if (value === "ring" || value === "rings") {
+            show = product.classList.contains("ring");
         }
-        else{
-            product.style.display = "none";
+        else if (value === "earring" || value === "earrings") {
+            show = product.classList.contains("earring");
+        }
+        else if (value === "bracelet" || value === "bracelets") {
+            show = product.classList.contains("bracelet");
+        }
+        else if (value === "necklace" || value === "necklaces") {
+            show = product.classList.contains("necklace");
+        }
+        else {
+            show = title.includes(value);
         }
 
+        product.style.display = show ? "block" : "none";
+
+        if (show) found = true;
     });
+
+    // No Result Found message
+    let noResult = document.getElementById("no-result");
+
+    if (!noResult) {
+        noResult = document.createElement("h3");
+        noResult.id = "no-result";
+        noResult.style.textAlign = "center";
+        noResult.style.marginTop = "30px";
+        noResult.style.color = "#8b5e3c";
+        document.getElementById("product-grid").after(noResult);
+    }
+
+    noResult.textContent = found ? "" : "No Result Found";
 }
 
 /* IMAGE POPUP */
